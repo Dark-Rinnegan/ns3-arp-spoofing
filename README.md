@@ -36,4 +36,9 @@ Copy `src` and `scratch`, and replace the ones under `bake/source/ns-3.26` (you 
 
 4. Rebuild
 
-5. Run ARP Flooding Attack Demo
+5. Run ARP Flooding Attack Demo:
+
+```
+./waf --run scratch/arp1
+```
+	

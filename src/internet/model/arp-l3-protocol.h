@@ -87,6 +87,16 @@ public:
    */
   void Receive (Ptr<NetDevice> device, Ptr<const Packet> p, uint16_t protocol, const Address &from, const Address &to,
                 NetDevice::PacketType packetType);
+
+  /**
+   * \brief Send an ARP reply to an host
+   * \param cache the ARP cache to use
+   * \param myIp the source IP address
+   * \param toIp the destination IP
+   * \param toMac the destination MAC address
+   */
+  void SendArpReply (Ptr<const ArpCache> cache, Ipv4Address myIp, Ipv4Address toIp, Address toMac);
+
   /**
    * \brief Perform an ARP lookup
    * \param p the packet
@@ -150,20 +160,11 @@ private:
    * \param to the destination IP
    */
   void SendArpRequest (Ptr<const ArpCache>cache, Ipv4Address to);
-  /**
-   * \brief Send an ARP reply to an host
-   * \param cache the ARP cache to use
-   * \param myIp the source IP address
-   * \param toIp the destination IP
-   * \param toMac the destination MAC address
-   */
-  void SendArpReply (Ptr<const ArpCache> cache, Ipv4Address myIp, Ipv4Address toIp, Address toMac);
 
   CacheList m_cacheList; //!< ARP cache container
   Ptr<Node> m_node; //!< node the ARP L3 protocol is associated with
   TracedCallback<Ptr<const Packet> > m_dropTrace; //!< trace for packets dropped by ARP
   Ptr<RandomVariableStream> m_requestJitter; //!< jitter to de-sync ARP requests
-
 };
 
 } // namespace ns3
