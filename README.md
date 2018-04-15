@@ -34,9 +34,8 @@ git clone https://github.com/Dark-Rinnegan/ns3-arp-spoofing.git
 
 Copy `src` and `scratch`, and replace the ones under `bake/source/ns-3.26` (you may have different directories setup with other systems/ways to build)
 
-4. Rebuild
 
-5. Run ARP Flooding Attack Demo:
+4. Run ARP Flooding Attack Demo:
 
 ```
 ./waf --run scratch/arp1
